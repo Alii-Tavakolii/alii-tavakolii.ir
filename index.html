@@ -3,49 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Tavakoli | Portfolio</title>
+    <title>Ali Tavakoli | Computer Science</title>
     <link rel="stylesheet" href="style.css">
+    <!-- لینک برای لود کردن آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Ali Tavakoli</h1>
-            <p class="subtitle">Computer Science B.Sc. Student at University of Tehran</p>
-        </div>
-    </header>
+    <div class="resume-wrapper">
+        <aside class="sidebar">
+            <div class="profile-container">
+                <div class="profile-avatar">
+                    <!-- اگر عکسی با نام profile.jpg در گیت هاب آپلود کنید اینجا نمایش داده می‌شود، در غیر اینصورت حرف اول اسمتان می‌آید -->
+                    <span>AT</span>
+                </div>
+                <h1>Ali Tavakoli</h1>
+                <h2 class="title">Computer Science Researcher</h2>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:tavakoliali121@gmail.com">tavakoliali121@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Tehran, Iran</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Za-Tav" target="_blank">github.com/Za-Tav</a>
+                </div>
+            </div>
 
-    <main class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am a 22-year-old computer scientist with a strong passion for the mathematical foundations of Artificial Intelligence. I am currently an incoming Master's student in Computer Science at Sharif University of Technology, admitted through the Talented Students program.</p>
-            <p>I completed my B.Sc. in Computer Science with a minor in Mathematics at the University of Tehran, ranking 2nd in my class with a GPA of 19.26. During my undergraduate studies, I served as a Teaching Assistant for courses including Graph Theory and Combinatorics. Prior to my university studies, I was a finalist in the Iranian National Computer Olympiad.</p>
-        </section>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-code"></i> Skills & Tools</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">LaTeX / XeLaTeX</span>
+                    <span class="skill-tag">Linux / Ubuntu</span>
+                </div>
+            </div>
 
-        <section id="interests">
-            <h2>Research Interests</h2>
-            <ul>
-                <li>Mathematical Foundations of Artificial Intelligence</li>
-                <li>Combinatorics & Graph Theory</li>
-                <li>Optimization</li>
-                <li>Stochastic Processes</li>
-            </ul>
-        </section>
+            <div class="sidebar-section">
+                <h3><i class="fas fa-language"></i> Language</h3>
+                <p><strong>English (TOEFL iBT):</strong> 103</p>
+                <p class="sub-text">Reading: -, Listening: -, Speaking: 21, Writing: 24</p>
+            </div>
+        </aside>
 
-        <section id="objective">
-            <h2>Prospective Programs</h2>
-            <p>I am actively preparing to apply for fully-funded graduate programs for the <strong>Fall 2027</strong> intake, with a geographic focus on Canada, Germany, and Switzerland, to further my research in theoretical computer science and AI.</p>
-        </section>
+        <main class="content">
+            <section class="content-section">
+                <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
+                <p>
+                    I am a 22-year-old Computer Science graduate with a minor in Mathematics, holding a profound interest in theoretical computer science, combinatorics, graph theory, optimization, and stochastic processes. I am currently an incoming Master's student at Sharif University of Technology, admitted through the "Talented Students" (Estedad Derakhshan) program.
+                </p>
+                <p>
+                    With a solid background in competitive programming and mathematical problem-solving, I am actively seeking fully-funded graduate opportunities (Ph.D./M.Sc.) for the <strong>Fall 2027</strong> intake, focusing on programs in Canada, Germany, and Switzerland.
+                </p>
+            </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:tavakoliali121@gmail.com">tavakoliali121@gmail.com</a></p>
-        </section>
-    </main>
+            <section class="content-section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2026 – Present</div>
+                    <div class="timeline-content">
+                        <h3>M.Sc. in Computer Science</h3>
+                        <h4>Sharif University of Technology</h4>
+                        <p class="highlight">Admitted via the Talented Students Program</p>
+                    </div>
+                </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Ali Tavakoli. All rights reserved.</p>
-        </div>
-    </footer>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022 – 2026</div>
+                    <div class="timeline-content">
+                        <h3>B.Sc. in Computer Science (Minor in Mathematics)</h3>
+                        <h4>University of Tehran</h4>
+                        <ul>
+                            <li><strong>GPA:</strong> 19.26 / 20.0</li>
+                            <li><strong>Rank:</strong> 2nd in class</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title"><i class="fas fa-microscope"></i> Research & Projects</h2>
+                
+                <div class="project-item">
+                    <h3>Duality in Integer Programming</h3>
+                    <p class="sub-text">Undergraduate Project | Advisor: Dr. Majid Soleimani-Damaneh</p>
+                    <p>Conducted in-depth theoretical research and formulated a comprehensive proposal focusing on duality concepts within integer optimization models.</p>
+                </div>
+
+                <div class="project-item">
+                    <h3>MahsaNG Linux Graphical Interface</h3>
+                    <p class="sub-text">Open Source Development</p>
+                    <p>Developing and deploying a Linux-based GUI for the MahsaNG network proxy tool to enhance usability for Ubuntu environments.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2 class="section-title"><i class="fas fa-award"></i> Honors & Activities</h2>
+                <ul class="list-styled">
+                    <li><strong>Participant:</strong> Probability in Turkey 2026 Summer School at Nesin Mathematics Village (Aug 2026).</li>
+                    <li><strong>Teaching Assistant:</strong> Graph Theory and Combinatorics courses at the University of Tehran.</li>
+                    <li><strong>National Finalist:</strong> Ranked among the top 80 nationally in the Iranian National Computer Olympiad.</li>
+                    <li><strong>Competitive Programming:</strong> Active participant in algorithmic challenges and Codeforces.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
