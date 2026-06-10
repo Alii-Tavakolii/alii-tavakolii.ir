@@ -248,6 +248,11 @@ body {
     .timeline-date {
         margin-bottom: 0.3rem;
     }
+
+    /* جلوگیری از فاصله‌های زیاد بین کلمات در موبایل */
+    .content-section p {
+        text-align: left;
+    }
 }
 
 .content h1 {
