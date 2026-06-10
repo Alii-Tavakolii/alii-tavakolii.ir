@@ -160,6 +160,9 @@ body {
 .content-section p {
     margin-bottom: 1rem;
     text-align: justify;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
 }
 
 .highlight {
@@ -249,12 +252,13 @@ body {
         margin-bottom: 0.3rem;
     }
 
-    /* جلوگیری از فاصله‌های زیاد بین کلمات در موبایل */
+    /* جلوگیری قطعی از فاصله‌های زیاد بین کلمات در موبایل */
     .content-section p {
-        text-align: left;
+        text-align: left !important;
     }
 }
 
+/* استایل عنوان اصلی محتوا */
 .content h1 {
     font-size: 1.6rem;
     font-weight: 700;
