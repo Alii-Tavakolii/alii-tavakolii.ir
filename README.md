@@ -11,6 +11,7 @@ Static academic portfolio for [alii-tavakolii.ir](https://alii-tavakolii.ir/).
 - `honors.html` - honors, teaching, and activities
 - `resume.pdf` - downloadable academic resume
 - `style.css` and `fonts/` - shared styling and self-hosted fonts
+- `robots.txt` and `sitemap.xml` - search-engine crawling and indexing hints
 
 ## Local preview
 
@@ -24,4 +25,6 @@ Then open `http://localhost:8000/`.
 
 ## Deployment
 
-The site is static and can be deployed directly to Cloudflare Pages or any static hosting provider. `wrangler.jsonc` contains the Cloudflare configuration.
+The website is deployed to GitHub Pages by `.github/workflows/static.yml` whenever changes are pushed to the `main` branch.
+
+The custom domain is `alii-tavakolii.ir` and is also recorded in the `CNAME` file.
