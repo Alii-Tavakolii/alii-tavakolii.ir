@@ -127,6 +127,7 @@
     font-style:italic;
     color:var(--ink-soft);
   }
+  .excerpt p{ margin:0; }
   .excerpt cite{
     display:block;
     margin-top:.5rem;
@@ -289,44 +290,44 @@
   </header>
 
   <main>
-    <p class="lede">Lemma 4.2 builds a set of one-way paths that stand in for an elimination tree. It uses a <var>k</var>-colorable guidance system to limit how many paths can pass through any one vertex. But the step that counts those paths has a gap: it quietly assumes something about the paths' end points that the construction does not actually guarantee.</p>
+    <p class="lede">Lemma 4.2 builds a set of one-way paths that stand in for an elimination tree, using a <var>k</var>-colorable guidance system to limit how many paths can pass through any one vertex. The step that counts those paths has a gap, though: it assumes something about the paths' endpoints that the construction doesn't actually guarantee.</p>
 
     <h2>The setup</h2>
-    <p>Take a vertex <var>v</var> in the elimination tree <var>F</var> (not the root), whose parent <code class="sym">p(v)</code> is not actually next to it in <var>G</var>. The proof builds a path <code class="sym">P<sub>v</sub></code> to stand in for that missing connection. Both <var>v</var> and <code class="sym">p(v)</code> live inside the same "adhesion" at some tree node <var>t</var>, and the guidance system gives us one vertex <var>x</var> that "reaches" both of them — meaning <var>v</var> and <code class="sym">p(v)</code> are each the root of an in-tree that contains <var>x</var>. The path <code class="sym">P<sub>v</sub></code> is built from two pieces glued together at <var>x</var>:</p>
+    <p>Take a vertex <var>v</var> in the elimination tree <var>F</var> (not the root), whose parent <code class="sym">p(v)</code> is not actually next to it in <var>G</var>. The proof builds a path <code class="sym">P<sub>v</sub></code> to stand in for that missing connection. Both <var>v</var> and <code class="sym">p(v)</code> live inside the same "adhesion" at some tree node <var>t</var>, and the guidance system gives us one vertex <var>x</var> that "reaches" both of them, meaning <var>v</var> and <code class="sym">p(v)</code> are each the root of an in-tree that contains <var>x</var>. The path <code class="sym">P<sub>v</sub></code> is built from two pieces glued together at <var>x</var>:</p>
     <ul class="steps">
       <li>from <var>x</var> back to <var>v</var>, along the in-tree rooted at <var>v</var> (reversed);</li>
       <li>from <var>x</var> onward to <code class="sym">p(v)</code>, along the in-tree rooted at <code class="sym">p(v)</code>.</li>
     </ul>
-    <p>So each path is really two different in-trees, stuck together at <var>x</var>.</p>
+    <p>Each path is really two different in-trees stuck together at <var>x</var>.</p>
 
     <h2>The claimed bound</h2>
     <p>To show that not too many paths pass through some vertex <var>y</var>, the proof looks at the set <code class="sym">S = {s<sub>1</sub>,…,s<sub>ℓ</sub>}</code> of all in-tree roots whose in-tree passes through <var>y</var>. Since <var>Λ</var> is <var>k</var>-colorable, any group of in-trees that all overlap each other has at most <var>k</var> members, so <code class="sym">ℓ ≤ k</code>. The proof then says:</p>
 
     <span class="flaw-tag">flagged step</span>
-    <div class="excerpt">
-      “…we add a new oriented path to <var>P</var> connecting one vertex in <code class="sym">{s<sub>1</sub>,…,s<sub>ℓ</sub>}</code> to another vertex in <code class="sym">{s<sub>1</sub>,…,s<sub>ℓ</sub>}</code> only when the latter vertex is the parent of the former vertex in <var>F</var>.”
+    <blockquote class="excerpt">
+      <p>“…we add a new oriented path to <var>P</var> connecting one vertex in <code class="sym">{s<sub>1</sub>,…,s<sub>ℓ</sub>}</code> to another vertex in <code class="sym">{s<sub>1</sub>,…,s<sub>ℓ</sub>}</code> only when the latter vertex is the parent of the former vertex in <var>F</var>.”</p>
       <cite>Proof of Lemma 4.2, p. 15</cite>
-    </div>
+    </blockquote>
 
-    <p>The idea is: every path through <var>y</var> connects two members of <var>S</var>, like an edge in a tree drawn on <var>S</var>. A tree on <code class="sym">ℓ</code> points has at most <code class="sym">ℓ − 1</code> edges, so the proof concludes there are at most <code class="sym">k − 1</code> such paths.</p>
+    <p>The idea is that every path through <var>y</var> connects two members of <var>S</var>, the way an edge connects two points in a tree drawn on <var>S</var>. Since a tree on <code class="sym">ℓ</code> points has at most <code class="sym">ℓ − 1</code> edges, the proof concludes there are at most <code class="sym">k − 1</code> such paths.</p>
 
     <h2>Where it breaks</h2>
-    <p>That "edges of a tree on <var>S</var>" picture only works if <em>both</em> ends of every path through <var>y</var> are actually in <var>S</var>. But remember, <code class="sym">P<sub>v</sub></code> is glued from two separate in-trees at <var>x</var>. For <var>y</var> to lie on <code class="sym">P<sub>v</sub></code>, it only has to sit on <em>one</em> of those two pieces — not both. Say <var>y</var> sits on the piece going from <var>x</var> to <code class="sym">p(v)</code>. That puts <code class="sym">p(v)</code> in <var>S</var>. But nothing says <var>v</var> is in <var>S</var> too — the in-tree rooted at <var>v</var> might never even pass near <var>y</var>. The same problem happens the other way round. The only time both roots are guaranteed to be pinned down together is the special case <code class="sym">y = x</code>.</p>
+    <p>That "edges of a tree on <var>S</var>" picture only works if <em>both</em> ends of every path through <var>y</var> are actually in <var>S</var>. Remember, though, that <code class="sym">P<sub>v</sub></code> is glued from two separate in-trees at <var>x</var>, so for <var>y</var> to lie on <code class="sym">P<sub>v</sub></code> it only has to sit on <em>one</em> of those two pieces, not both. Say <var>y</var> sits on the piece going from <var>x</var> to <code class="sym">p(v)</code>: that puts <code class="sym">p(v)</code> in <var>S</var>, but nothing says <var>v</var> is in <var>S</var> too. The in-tree rooted at <var>v</var> might never even pass near <var>y</var>. The same problem happens the other way round, and the only time both roots are guaranteed to be pinned down together is the special case <code class="sym">y = x</code>.</p>
 
-    <p>So the paths going through <var>y</var> don't line up neatly with pairs of points in <var>S</var> — they're more like loose ends hanging off of <var>S</var>, and nothing in the coloring argument stops there from being a lot of them.</p>
+    <p>The paths going through <var>y</var> don't line up neatly with pairs of points in <var>S</var>, then. They're more like loose ends hanging off of <var>S</var>, and nothing in the coloring argument stops there from being a lot of them.</p>
 
     <div class="example">
       <div class="h">A concrete overload</div>
-      <p>Here's a case where it actually breaks. Suppose vertex <var>u</var> has many children in <var>F</var>, call them <code class="sym">v<sub>1</sub>, …, v<sub>m</sub></code>, and all of them happen to route through the <em>same</em> in-tree rooted at <var>u</var> (nothing in the construction rules this out — <var>Λ</var> doesn't have to give a different in-tree for each root). Pick a vertex <var>y</var> sitting on the shared trunk of that in-tree, somewhere below <var>u</var> but above every "reaching" vertex <code class="sym">x<sub>i</sub></code>. Now <var>y</var> lies inside every single path <code class="sym">P<sub>v<sub>i</sub></sub></code> — so as many as <code class="sym">m</code> paths pass through it. But this only involves <em>one</em> in-tree, so <var>k</var>-colorability sees no conflict at all and never limits <code class="sym">m</code>. Since a vertex of <var>F</var> can have any number of children, <code class="sym">m</code> can be much bigger than <var>k</var> — breaking the claimed bound of <code class="sym">k − 1</code>.</p>
+      <p>Here's a case where it actually breaks. Suppose vertex <var>u</var> has many children in <var>F</var>, call them <code class="sym">v<sub>1</sub>, …, v<sub>m</sub></code>, and all of them happen to route through the <em>same</em> in-tree rooted at <var>u</var> (nothing in the construction rules this out; <var>Λ</var> doesn't have to give a different in-tree for each root). Pick a vertex <var>y</var> sitting on the shared trunk of that in-tree, somewhere below <var>u</var> but above every "reaching" vertex <code class="sym">x<sub>i</sub></code>. Now <var>y</var> lies inside every single path <code class="sym">P<sub>v<sub>i</sub></sub></code>, so as many as <code class="sym">m</code> paths pass through it, and because this only involves <em>one</em> in-tree, <var>k</var>-colorability sees no conflict at all and never limits <code class="sym">m</code>. A vertex of <var>F</var> can have any number of children, so <code class="sym">m</code> can be much bigger than <var>k</var>, which breaks the claimed bound of <code class="sym">k − 1</code>.</p>
     </div>
 
     <h2>Scope of the gap</h2>
-    <p>This gap does not stay inside Lemma 4.2. Here is why. Lemma 4.3 has its own way of counting, and that counting looks fine on its own. But Lemma 4.3 does not start from scratch — it needs an input: for each marginal graph <code class="sym">G<sup>⋆</sup><sub>t</sub></code>, it needs an elimination tree and a path system with congestion at most some number <code class="sym">k<sub>1</sub></code>. In the proof of Proposition&nbsp;3.7, that input is built by calling Lemma 4.2. So Lemma 4.3's result depends on Lemma 4.2's congestion bound being correct.</p>
-    <p>But Lemma 4.2's congestion bound is exactly what is broken. So the number <code class="sym">k<sub>1</sub></code> that gets fed into Lemma 4.3 is not actually proven. That means Lemma 4.3's own output, <code class="sym">3k<sub>1</sub>·k<sub>2</sub><sup>2</sup></code>, is not proven either — even though the steps inside Lemma 4.3 are fine. And this broken number is exactly the bound <code class="sym">f(ω)</code> that Proposition&nbsp;3.7 hands off, which then gets used directly in the proof of Theorem&nbsp;1.1. So the gap does not just sit inside one lemma's writeup — it runs all the way from Lemma 4.2, through Lemma 4.3, through Proposition&nbsp;3.7, and into the proof of the paper's main theorem.</p>
+    <p>This gap doesn't stay inside Lemma 4.2. Lemma 4.3 has its own way of counting, and that counting looks fine on its own, but Lemma 4.3 doesn't start from scratch: for each marginal graph <code class="sym">G<sup>⋆</sup><sub>t</sub></code> it needs an elimination tree and a path system with congestion at most some number <code class="sym">k<sub>1</sub></code>, and in the proof of Proposition&nbsp;3.7 that input is built by calling Lemma 4.2. So Lemma 4.3's result depends on Lemma 4.2's congestion bound being correct.</p>
+    <p>Lemma 4.2's congestion bound is exactly what's broken, though, so <code class="sym">k<sub>1</sub></code> is never actually proven, and neither is Lemma 4.3's own output, <code class="sym">3k<sub>1</sub>·k<sub>2</sub><sup>2</sup></code>, even though the steps inside Lemma 4.3 itself are fine. That broken number is the bound <code class="sym">f(ω)</code> that Proposition&nbsp;3.7 hands off, and it gets used directly in the proof of Theorem&nbsp;1.1. The gap isn't contained to one lemma's writeup; it reaches Lemma 4.3 and Proposition&nbsp;3.7 on its way into the paper's main theorem.</p>
 
     <div class="callout">
       <span class="h">What this does and doesn't affect</span>
-      <p>Because Lemma 4.2 feeds directly into Lemma 4.3 (through Proposition&nbsp;3.7), this gap is not just a small issue in one lemma. As things are written, it reaches all the way into the proof of Theorem&nbsp;1.1. That said, this does <em>not</em> mean Theorem&nbsp;1.1 or its corollaries are false. It's likely that a fixed version of the counting argument (for example, limiting branching inside each in-tree, or counting congestion per in-tree vertex instead of per root) would still give some bound in terms of <var>k</var>, which could then be carried through Lemma 4.3, Proposition&nbsp;3.7, and Theorem&nbsp;1.1 again. But right now, as written, the proof of the main theorem has a real gap in it — not just a small, contained slip in one auxiliary lemma.</p>
+      <p>As written, the proof of Theorem&nbsp;1.1 has a real gap in it, not a small, contained slip in one auxiliary lemma. I don't think the theorem itself is false. A fixed counting argument, say limiting branching inside each in-tree, or counting congestion per in-tree vertex instead of per root, would probably still give some bound in terms of <var>k</var>, and that bound would carry back through Lemma 4.3 and Proposition&nbsp;3.7 to Theorem&nbsp;1.1. But "probably fixable" isn't the same as proven, and right now this step of the proof isn't proven.</p>
     </div>
 
     <div class="status">
@@ -338,7 +339,7 @@
 
   <footer>
     <p class="bib">L. Cook, E. J. Kim, T. Masařík. <em>A tight meta-theorem for LOCAL certification of MSO₂ properties within bounded treewidth graphs.</em> arXiv:2503.19671, March 2025.</p>
-    <p>Corrections to this note are welcome — open an issue on the repository this page is hosted from.</p>
+    <p>Corrections to this note are welcome; open an issue on the repository this page is hosted from.</p>
   </footer>
 
 </div>
